@@ -26,9 +26,3 @@ updates:
     versioning-strategy: increase
     # リベースの戦略
     rebase-strategy: "auto"
-    # レビュアーの自動アサイン（必要に応じて設定）
-    # reviewers:
-    #   - "username"
-    # アサイニーの自動アサイン（必要に応じて設定）  
-    # assignees:
-    #   - "username"
