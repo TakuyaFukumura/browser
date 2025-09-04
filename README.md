@@ -167,6 +167,45 @@ IDE（IntelliJ IDEA等）から実行する場合は、VMオプションに以�
 - JavaFX WebKitエンジンがサポートされていない環境の可能性があります
 - Windows 10/11の最新版での動作を推奨します
 
+## 依存関係管理（Dependabot）
+
+このプロジェクトでは **Dependabot** を使用して依存関係の自動更新を行っています。
+
+### Dependabotについて
+
+Dependabotは GitHubが提供する自動依存関係更新サービスで、以下の機能を提供します：
+
+- **自動監視**: pom.xmlに定義された依存関係を定期的に監視
+- **セキュリティ更新**: 脆弱性が発見された依存関係の迅速な更新
+- **バージョン更新**: 新しいバージョンがリリースされた際の自動プルリクエスト作成
+- **設定可能**: 更新頻度やプルリクエスト制限を細かく設定可能
+
+### 監視対象の依存関係
+
+- **JavaFX依存関係**
+  - `javafx-controls`
+  - `javafx-fxml` 
+  - `javafx-web`
+- **テスト依存関係**
+  - `junit-jupiter-engine`
+  - `junit-jupiter-api`
+- **Maven プラグイン**
+  - `maven-compiler-plugin`
+  - `exec-maven-plugin`
+  - `javafx-maven-plugin`
+  - `maven-surefire-plugin`
+
+### 更新スケジュール
+
+- **頻度**: 毎週月曜日 9:00 (JST)
+- **プルリクエスト制限**: 最大5件まで同時にオープン
+- **自動ラベル**: `dependencies`, `maven` ラベルが自動で付与
+
+### 設定ファイル
+
+Dependabotの設定は `.github/dependabot.yml` ファイルで管理されています。  
+設定の変更が必要な場合は、このファイルを編集してください。
+
 ## 今後の拡張予定
 
 - [ ] タブブラウジング機能

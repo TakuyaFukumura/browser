@@ -1,0 +1,34 @@
+# Dependabot設定ファイル
+# Maven依存関係の自動更新を管理します
+
+version: 2
+updates:
+  # Maven依存関係の監視
+  - package-ecosystem: "maven"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "09:00"
+      timezone: "Asia/Tokyo"
+    # プルリクエストの制限
+    open-pull-requests-limit: 5
+    # ラベルの設定
+    labels:
+      - "dependencies"
+      - "maven"
+    # コミットメッセージの設定
+    commit-message:
+      prefix: "deps"
+      prefix-development: "deps-dev"
+      include: "scope"
+    # バージョニング戦略
+    versioning-strategy: increase
+    # リベースの戦略
+    rebase-strategy: "auto"
+    # レビュアーの自動アサイン（必要に応じて設定）
+    # reviewers:
+    #   - "username"
+    # アサイニーの自動アサイン（必要に応じて設定）  
+    # assignees:
+    #   - "username"
