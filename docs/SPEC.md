@@ -1,11 +1,8 @@
 # シンプルブラウザ仕様書
 
 ## 概要
-Java 17とJavaFXを使用して開発されたWindows向けのシンプルなWebブラウザアプリケーションです。基本的なWebブラウジング機能を提供し、拡張性を重視した設計となっています。
-
-## バージョン
-- **現在のバージョン**: 0.1.0
-- **リリース日**: 2024年9月
+Java 17とJavaFXを使用して開発されたWindows向けのシンプルなWebブラウザアプリケーションです。
+基本的なWebブラウジング機能を提供し、拡張性を重視した設計となっています。
 
 ## 技術仕様
 
@@ -126,26 +123,3 @@ mvn javafx:run
 - JavaFX WebViewのWebKit制限に依存
 - WebRTC、WebGL等の最新Web技術は一部未対応
 - Flash等のプラグイン未対応
-
-## ライセンス
-このプロジェクトはオープンソースプロジェクトです。
-
-## 開発者向け情報
-
-### コードスタイル
-- 日本語コメントを使用
-- JavaDocスタイルのドキュメンテーション
-- 命名規則: キャメルケース（Java標準）
-
-### テスト
-現在のバージョンではユニットテストは実装されていません。今後のバージョンで追加予定です。
-
-### 貢献
-- バグ報告やFeature Requestは GitHub Issues で受け付けています
-- Pull Requestは歓迎します
-- コードレビューは日本語で実施します
-
-## 参考資料
-- [OpenJFX公式サイト](https://openjfx.io/)
-- [JavaFX Documentation](https://docs.oracle.com/javafx/)
-- [Maven Central - OpenJFX](https://search.maven.org/search?q=g:org.openjfx)
