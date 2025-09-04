@@ -1,0 +1,48 @@
+# シンプルブラウザ CI
+# Java 17とMavenを使用したビルドとテストの自動化
+
+name: CI
+
+# トリガー設定
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build-and-test:
+    # Windows環境を使用 (JavaFX依存関係がWindows用のため)
+    runs-on: windows-latest
+    
+    steps:
+    # リポジトリのチェックアウト
+    - name: コードをチェックアウト
+      uses: actions/checkout@v4
+    
+    # Java 17のセットアップ
+    - name: Java 17をセットアップ
+      uses: actions/setup-java@v4
+      with:
+        java-version: '17'
+        distribution: 'temurin'
+    
+    # Mavenキャッシュの設定
+    - name: Maven依存関係をキャッシュ
+      uses: actions/cache@v4
+      with:
+        path: ~/.m2
+        key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
+        restore-keys: ${{ runner.os }}-m2
+    
+    # Mavenによるビルド
+    - name: Mavenビルドを実行
+      run: ./mvnw clean compile
+    
+    # テストの実行
+    - name: テストを実行
+      run: ./mvnw test
+    
+    # パッケージの作成 (JARファイル)
+    - name: パッケージを作成
+      run: ./mvnw package -DskipTests
