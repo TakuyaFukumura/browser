@@ -2,7 +2,7 @@
 
 /* ルート要素 */
 .root {
-    -fx-font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+    -fx-font-family: "Yu Gothic", "Meiryo", "MS Gothic", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
     -fx-font-size: 14px;
     -fx-background-color: #f5f5f5;
 }
