@@ -120,9 +120,7 @@ public class BrowserApplication extends Application {
 
         // 履歴変更の監視
         webEngine.getHistory().currentIndexProperty().addListener(
-                (obs, oldVal, newVal) -> {
-                    updateNavigationButtons();
-                }
+                (obs, oldVal, newVal) -> updateNavigationButtons()
         );
     }
 
