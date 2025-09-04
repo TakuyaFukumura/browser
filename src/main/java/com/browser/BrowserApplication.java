@@ -106,20 +106,24 @@ public class BrowserApplication extends Application {
         refreshButton.setOnAction(e -> webEngine.reload());
 
         // WebEngineの状態変化監視
-        webEngine.getLoadWorker().stateProperty().addListener((obs, oldState, newState) -> {
-            if (newState == Worker.State.SUCCEEDED) {
-                String currentUrl = webEngine.getLocation();
-                if (currentUrl != null && !currentUrl.isEmpty()) {
-                    urlField.setText(currentUrl);
+        webEngine.getLoadWorker().stateProperty().addListener(
+                (obs, oldState, newState) -> {
+                    if (newState == Worker.State.SUCCEEDED) {
+                        String currentUrl = webEngine.getLocation();
+                        if (currentUrl != null && !currentUrl.isEmpty()) {
+                            urlField.setText(currentUrl);
+                        }
+                        updateNavigationButtons();
+                    }
                 }
-                updateNavigationButtons();
-            }
-        });
+        );
 
         // 履歴変更の監視
-        webEngine.getHistory().currentIndexProperty().addListener((obs, oldVal, newVal) -> {
-            updateNavigationButtons();
-        });
+        webEngine.getHistory().currentIndexProperty().addListener(
+                (obs, oldVal, newVal) -> {
+                    updateNavigationButtons();
+                }
+        );
     }
 
     /**
