@@ -13,16 +13,3 @@ updates:
       timezone: "Asia/Tokyo"
     # プルリクエストの制限
     open-pull-requests-limit: 5
-    # ラベルの設定
-    labels:
-      - "dependencies"
-      - "maven"
-    # コミットメッセージの設定
-    commit-message:
-      prefix: "deps"
-      prefix-development: "deps-dev"
-      include: "scope"
-    # バージョニング戦略
-    versioning-strategy: increase
-    # リベースの戦略
-    rebase-strategy: "auto"
