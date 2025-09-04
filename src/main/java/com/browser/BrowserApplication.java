@@ -16,7 +16,7 @@ import javafx.stage.Stage;
 
 /**
  * シンプルなJavaFXブラウザアプリケーション
- * 
+ * <p>
  * このアプリケーションは基本的なWebブラウザ機能を提供します：
  * - URL入力とページ読み込み
  * - 戻る/進む/更新ボタン
@@ -32,23 +32,30 @@ public class BrowserApplication extends Application {
     private Button refreshButton;
     private Button goButton;
 
+    /**
+     * アプリケーションのメインエントリーポイント
+     */
+    public static void main(String[] args) {
+        launch(args);
+    }
+
     @Override
     public void start(Stage primaryStage) {
         // UI要素の初期化
         initializeUI();
-        
+
         // レイアウトの構築
         BorderPane root = createLayout();
-        
+
         // シーンの作成とCSSの適用
         Scene scene = new Scene(root, 1200, 800);
         scene.getStylesheets().add(getClass().getResource("/style.css").toExternalForm());
-        
+
         // ステージの設定
         primaryStage.setTitle("シンプルブラウザ v0.1.0");
         primaryStage.setScene(scene);
         primaryStage.show();
-        
+
         // デフォルトページの読み込み
         loadDefaultPage();
     }
@@ -60,27 +67,27 @@ public class BrowserApplication extends Application {
         // WebViewとWebEngineの初期化
         webView = new WebView();
         webEngine = webView.getEngine();
-        
+
         // URL入力フィールド
         urlField = new TextField();
         urlField.setPromptText("URLを入力してください (例: https://www.google.com)");
         urlField.getStyleClass().add("url-field");
-        
+
         // ナビゲーションボタン
         backButton = new Button("←");
         backButton.getStyleClass().add("nav-button");
         backButton.setDisable(true);
-        
+
         forwardButton = new Button("→");
         forwardButton.getStyleClass().add("nav-button");
         forwardButton.setDisable(true);
-        
+
         refreshButton = new Button("⟲");
         refreshButton.getStyleClass().add("nav-button");
-        
+
         goButton = new Button("移動");
         goButton.getStyleClass().add("go-button");
-        
+
         // イベントハンドラの設定
         setupEventHandlers();
     }
@@ -92,12 +99,12 @@ public class BrowserApplication extends Application {
         // Go ボタンとEnterキーでページ読み込み
         goButton.setOnAction(e -> loadPage());
         urlField.setOnAction(e -> loadPage());
-        
+
         // ナビゲーションボタン
         backButton.setOnAction(e -> webEngine.getHistory().go(-1));
         forwardButton.setOnAction(e -> webEngine.getHistory().go(1));
         refreshButton.setOnAction(e -> webEngine.reload());
-        
+
         // WebEngineの状態変化監視
         webEngine.getLoadWorker().stateProperty().addListener((obs, oldState, newState) -> {
             if (newState == Worker.State.SUCCEEDED) {
@@ -108,7 +115,7 @@ public class BrowserApplication extends Application {
                 updateNavigationButtons();
             }
         });
-        
+
         // 履歴変更の監視
         webEngine.getHistory().currentIndexProperty().addListener((obs, oldVal, newVal) -> {
             updateNavigationButtons();
@@ -129,14 +136,14 @@ public class BrowserApplication extends Application {
      */
     private BorderPane createLayout() {
         BorderPane root = new BorderPane();
-        
+
         // ツールバーの作成
         HBox toolbar = createToolbar();
         root.setTop(toolbar);
-        
+
         // WebViewを中央に配置
         root.setCenter(webView);
-        
+
         return root;
     }
 
@@ -148,18 +155,18 @@ public class BrowserApplication extends Application {
         toolbar.setPadding(new Insets(10));
         toolbar.setAlignment(Pos.CENTER_LEFT);
         toolbar.getStyleClass().add("toolbar");
-        
+
         // URL入力フィールドを伸縮可能に設定
         HBox.setHgrow(urlField, Priority.ALWAYS);
-        
+
         toolbar.getChildren().addAll(
-            backButton, 
-            forwardButton, 
-            refreshButton, 
-            urlField, 
-            goButton
+                backButton,
+                forwardButton,
+                refreshButton,
+                urlField,
+                goButton
         );
-        
+
         return toolbar;
     }
 
@@ -184,12 +191,5 @@ public class BrowserApplication extends Application {
         String defaultUrl = "https://www.google.com";
         urlField.setText(defaultUrl);
         webEngine.load(defaultUrl);
-    }
-
-    /**
-     * アプリケーションのメインエントリーポイント
-     */
-    public static void main(String[] args) {
-        launch(args);
     }
 }
