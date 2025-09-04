@@ -1,0 +1,89 @@
+/* シンプルブラウザのスタイル定義 */
+
+/* ルート要素 */
+.root {
+    -fx-font-family: "Yu Gothic", "Meiryo", "MS Gothic", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+    -fx-font-size: 14px;
+    -fx-background-color: #f5f5f5;
+}
+
+/* ツールバー */
+.toolbar {
+    -fx-background-color: linear-gradient(to bottom, #ffffff, #e8e8e8);
+    -fx-border-color: #cccccc;
+    -fx-border-width: 0 0 1 0;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 2, 0, 0, 1);
+}
+
+/* URL入力フィールド */
+.url-field {
+    -fx-font-size: 14px;
+    -fx-padding: 8 12 8 12;
+    -fx-background-color: white;
+    -fx-border-color: #cccccc;
+    -fx-border-radius: 4px;
+    -fx-background-radius: 4px;
+    -fx-border-width: 1px;
+}
+
+.url-field:focused {
+    -fx-border-color: #4285f4;
+    -fx-border-width: 2px;
+    -fx-effect: dropshadow(three-pass-box, rgba(66, 133, 244, 0.3), 3, 0, 0, 1);
+}
+
+/* ナビゲーションボタン */
+.nav-button {
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-padding: 8 12 8 12;
+    -fx-background-color: linear-gradient(to bottom, #f8f8f8, #e8e8e8);
+    -fx-border-color: #cccccc;
+    -fx-border-radius: 4px;
+    -fx-background-radius: 4px;
+    -fx-border-width: 1px;
+    -fx-text-fill: #333333;
+    -fx-cursor: hand;
+}
+
+.nav-button:hover {
+    -fx-background-color: linear-gradient(to bottom, #ffffff, #f0f0f0);
+    -fx-border-color: #aaaaaa;
+}
+
+.nav-button:pressed {
+    -fx-background-color: linear-gradient(to bottom, #e0e0e0, #d0d0d0);
+}
+
+.nav-button:disabled {
+    -fx-opacity: 0.5;
+    -fx-cursor: default;
+}
+
+/* 移動ボタン */
+.go-button {
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-padding: 8 16 8 16;
+    -fx-background-color: linear-gradient(to bottom, #4285f4, #3367d6);
+    -fx-border-color: #2c5aa0;
+    -fx-border-radius: 4px;
+    -fx-background-radius: 4px;
+    -fx-border-width: 1px;
+    -fx-text-fill: white;
+    -fx-cursor: hand;
+}
+
+.go-button:hover {
+    -fx-background-color: linear-gradient(to bottom, #5294f5, #4285f4);
+}
+
+.go-button:pressed {
+    -fx-background-color: linear-gradient(to bottom, #3367d6, #2c5aa0);
+}
+
+/* WebView */
+.web-view {
+    -fx-border-color: #cccccc;
+    -fx-border-width: 1 0 0 0;
+}
