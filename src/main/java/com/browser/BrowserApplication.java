@@ -52,7 +52,7 @@ public class BrowserApplication extends Application {
         scene.getStylesheets().add(getClass().getResource("/style.css").toExternalForm());
 
         // ステージの設定
-        primaryStage.setTitle("シンプルブラウザ v0.1.0");
+        primaryStage.setTitle("Simple Browser");
         primaryStage.setScene(scene);
         primaryStage.show();
 
