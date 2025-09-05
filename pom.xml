@@ -81,12 +81,6 @@
                 <version>3.5.1</version>
                 <configuration>
                     <mainClass>com.browser.BrowserApplication</mainClass>
-                    <options>
-                        <option>--module-path</option>
-                        <option>${javafx.runtime.path}</option>
-                        <option>--add-modules</option>
-                        <option>javafx.controls,javafx.fxml,javafx.web</option>
-                    </options>
                 </configuration>
             </plugin>
 
